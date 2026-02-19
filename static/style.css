@@ -1,0 +1,238 @@
+/* Zubia Mughal E-Portfolio - Premium Custom Styling */
+/* Brand: Deep Navy, Teal Accent, Governance-first Applied Researcher */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+:root {
+  --navy: #0A192F;
+  --teal: #64FFDA;
+  --white-text: #E6F1FF;
+  --light-gray: #F8F9FA;
+  --muted: #8892B0;
+  --card-bg: rgba(10, 25, 47, 0.95);
+  --border-subtle: rgba(100, 255, 218, 0.2);
+}
+
+/* Override Streamlit defaults */
+.stApp {
+  background: linear-gradient(180deg, #0A192F 0%, #0d2137 50%, #0A192F 100%) !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+}
+
+/* Hide Streamlit branding */
+#MainMenu { visibility: hidden; }
+footer { visibility: hidden; }
+header { visibility: hidden; }
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  color: var(--white-text) !important;
+  font-weight: 600 !important;
+}
+
+p, span, div {
+  color: var(--white-text) !important;
+}
+
+/* Hero Section */
+.hero-container {
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.98) 0%, rgba(13, 33, 55, 0.95) 100%);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  border: 1px solid var(--border-subtle);
+}
+
+.hero-headline {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 2.75rem !important;
+  font-weight: 700 !important;
+  color: var(--teal) !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.hero-subhead {
+  font-size: 1.25rem !important;
+  color: var(--muted) !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.hero-tagline {
+  font-size: 1.1rem !important;
+  color: var(--white-text) !important;
+  line-height: 1.6 !important;
+}
+
+/* Stats Row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-card {
+  background: rgba(100, 255, 218, 0.08);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--teal);
+}
+
+.stat-value {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: var(--teal) !important;
+}
+
+.stat-label {
+  font-size: 0.85rem !important;
+  color: var(--muted) !important;
+  margin-top: 0.25rem !important;
+}
+
+/* CTA Button */
+.cta-button {
+  background: linear-gradient(135deg, var(--teal) 0%, #52e0c4 100%) !important;
+  color: var(--navy) !important;
+  font-weight: 600 !important;
+  padding: 0.75rem 2rem !important;
+  border-radius: 8px !important;
+  border: none !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(100, 255, 218, 0.35) !important;
+}
+
+/* Skills Matrix */
+.skills-section {
+  margin: 3rem 0;
+}
+
+.skill-category {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-category-header {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1.25rem !important;
+  color: var(--teal) !important;
+  margin-bottom: 1rem !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-pill {
+  display: inline-block;
+  background: rgba(100, 255, 218, 0.15);
+  color: var(--teal);
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin: 0.25rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.proficiency-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+}
+
+.proficiency-expert { background: rgba(100, 255, 218, 0.3); color: var(--teal); }
+.proficiency-advanced { background: rgba(100, 255, 218, 0.2); color: var(--white-text); }
+.proficiency-intermediate { background: rgba(136, 146, 176, 0.3); color: var(--muted); }
+
+/* Project Cards */
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--teal);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.risk-badge {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.risk-low { background: rgba(76, 175, 80, 0.3); color: #81C784; }
+.risk-medium { background: rgba(255, 193, 7, 0.3); color: #FFD54F; }
+.risk-high { background: rgba(244, 67, 54, 0.3); color: #E57373; }
+
+/* About Section */
+.about-section {
+  background: rgba(100, 255, 218, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+}
+
+/* Footer */
+.footer-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.footer-link {
+  color: var(--teal) !important;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: opacity 0.2s;
+}
+
+.footer-link:hover {
+  opacity: 0.8;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: var(--muted) !important;
+  margin-top: 1rem;
+}
+
+/* Progress indicator */
+.completion-badge {
+  background: rgba(100, 255, 218, 0.2);
+  border: 1px solid var(--teal);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: var(--teal);
+}
