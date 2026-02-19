@@ -1,53 +1,32 @@
-"""
-Reusable project card component for Zubia Mughal E-Portfolio.
-Displays project preview with business impact, skill tags, and risk tier badge.
-"""
-
 import streamlit as st
 
 
-def project_card(
-    project_num: int,
-    title: str,
-    impact_hook: str,
-    skill_tags: list[str],
-    risk_tier: str,
-    page_link: str,
-) -> None:
-    """
-    Render a project card with governance-focused metadata.
-    
-    Args:
-        project_num: Project number (1-12)
-        title: Project title
-        impact_hook: One-line business impact statement
-        skill_tags: List of skill/tech tags (pills)
-        risk_tier: "Low", "Medium", or "High"
-        page_link: Streamlit page route (e.g., "Project_1")
-    """
-    risk_class = {
-        "Low": "risk-low",
-        "Medium": "risk-medium",
-        "High": "risk-high",
-    }.get(risk_tier, "risk-medium")
-    
+def project_card(title, description, skills, risk_tier, impact, page_file):
+    """Display a project card with risk tier badge"""
+
+    # Risk tier colors
+    risk_colors = {
+        "Low": "#28a745",
+        "Medium": "#ffc107",
+        "High": "#dc3545",
+    }
+
     with st.container():
+        st.markdown(f"### {title}")
+        st.write(description)
+
+        # Risk badge
+        color = risk_colors.get(risk_tier, "#6c757d")
         st.markdown(
-            f"""
-            <div class="project-card">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
-                    <span style="font-family: 'Playfair Display', serif; font-size: 0.9rem; color: #64FFDA;">Project {project_num}</span>
-                    <span class="risk-badge {risk_class}">{risk_tier} Risk</span>
-                </div>
-                <h4 style="font-family: 'Playfair Display', serif; color: #E6F1FF; margin-bottom: 0.5rem;">{title}</h4>
-                <p style="font-size: 0.9rem; color: #8892B0; margin-bottom: 1rem; line-height: 1.5;">{impact_hook}</p>
-                <div style="margin-bottom: 1rem;">
-                    {" ".join([f'<span class="skill-pill">{tag}</span>' for tag in skill_tags])}
-                </div>
-            </div>
-            """,
+            f'<span style="background-color: {color}; color: white; padding: 4px 8px; '
+            f'border-radius: 12px; font-size: 0.8em;">{risk_tier} Risk</span>',
             unsafe_allow_html=True,
         )
-        
-        if st.button(f"View Case Study →", key=f"project_{project_num}", type="primary"):
-            st.switch_page(f"pages/{page_link}.py")
+
+        st.caption(f"**Impact:** {impact}")
+        st.caption(f"**Skills:** {skills}")
+
+        if st.button(f"View Case Study", key=title):
+            st.switch_page(f"pages/{page_file}")
+
+        st.markdown("---")

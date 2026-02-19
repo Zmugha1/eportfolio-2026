@@ -1,1 +1,1 @@
-"""E-Portfolio reusable components."""
+# E-Portfolio components package
