@@ -121,4 +121,4 @@ if governance:
 # Back to portfolio
 st.markdown("---")
 if st.button("Back to Portfolio"):
-    st.switch_page("main.py")
+    st.switch_page("app.py")

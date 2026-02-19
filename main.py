@@ -159,7 +159,7 @@ with st.sidebar:
     st.markdown("### Navigation")
     st.caption("Select a case study to view governance framework & ROI")
 
-    st.page_link("main.py", label="Main")
+    st.page_link("app.py", label="Main")
     st.page_link("pages/01_AB_Testing.py", label="AB Testing")
     st.page_link("pages/02_Survival.py", label="Survival")
     st.page_link("pages/03_Classification.py", label="Classification")
