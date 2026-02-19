@@ -27,7 +27,7 @@ def show_craig(context, role, action, impact, growth):
         st.write(growth)
 
 
-# Alias for backward compatibility with 01_project_ab_testing.py
+# Alias for backward compatibility with 01_AB_Testing.py
 def craig_section(context, role, action, impact, growth):
     """Alias for show_craig - CRAIG framework display"""
     show_craig(context, role, action, impact, growth)

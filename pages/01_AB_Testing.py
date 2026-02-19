@@ -1,5 +1,5 @@
 """
-Project 1: Governed A/B Testing with MRM
+AB Testing: Governed A/B Testing with MRM
 Chi-Square validation, Fairness Auditing, Model Risk Management
 """
 
@@ -13,7 +13,7 @@ from scipy import stats
 from components.craig_section import craig_section
 
 st.set_page_config(
-    page_title="Governed A/B Testing | Zubia Mughal",
+    page_title="AB Testing | Zubia Mughal",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -28,7 +28,7 @@ JSON_PATH = DATA_DIR / "governance_log.json"
 st.markdown(
     """
     <style>
-    .metric-card { background: rgba(100, 255, 218, 0.08); border: 1px solid rgba(100, 255, 218, 0.2); 
+    .metric-card { background: rgba(100, 255, 218, 0.08); border: 1px solid rgba(100, 255, 218, 0.2);
                   border-radius: 12px; padding: 1rem; margin: 0.5rem 0; }
     .governance-event { border-left: 4px solid #64FFDA; padding-left: 1rem; margin: 0.5rem 0; }
     </style>
@@ -121,4 +121,4 @@ if governance:
 # Back to portfolio
 st.markdown("---")
 if st.button("Back to Portfolio"):
-    st.switch_page("app.py")
+    st.switch_page("main.py")

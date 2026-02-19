@@ -13,19 +13,32 @@ pip install -r requirements.txt
 ## Run Locally
 
 ```bash
-streamlit run app.py
+streamlit run main.py
 ```
 
 Opens at `http://localhost:8501`.
 
+**Streamlit Cloud:** Set `main.py` as the main file in your app settings.
+
 ## Project Structure
 
 ```
-├── app.py                    # Main landing page
+├── main.py                    # Main landing page
 ├── .streamlit/
 │   └── config.toml           # Theme (navy/teal)
 ├── pages/
-│   └── 01_project_ab_testing.py   # Project 1: A/B Testing with MRM
+│   ├── 01_AB_Testing.py      # AB Testing with MRM
+│   ├── 02_Survival.py
+│   ├── 03_Classification.py
+│   ├── 04_Segmentation.py
+│   ├── 05_PCA.py
+│   ├── 06_Rules.py
+│   ├── 07_Causal.py
+│   ├── 08_Knowledge_Graph.py
+│   ├── 09_Retrieval.py
+│   ├── 10_Governance.py
+│   ├── 11_RAG.py
+│   └── 12_Agents.py
 ├── data/
 │   ├── ab_test_data.csv      # 12,000 user A/B test dataset
 │   └── governance_log.json   # MRM audit trail

@@ -147,33 +147,31 @@ st.markdown(
         background-color: #64FFDA;
         color: #0A192F !important;
     }
+    /* Hide default Streamlit page nav - we use custom nav */
+    [data-testid="stSidebarNav"] { display: none !important; }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-# SIDEBAR - HIRING-FOCUSED NAVIGATION (Not file names!)
+# SIDEBAR - INTUITIVE NAVIGATION
 with st.sidebar:
-    st.markdown("### Impact Areas")
+    st.markdown("### Navigation")
     st.caption("Select a case study to view governance framework & ROI")
 
-    # Navigation buttons that sound like business outcomes
-    if st.button("Campaign Optimization", use_container_width=True, type="primary"):
-        st.switch_page("pages/01_project_ab_testing.py")
-
-    st.markdown("**Coming Soon:**")
-
-    st.button("Churn Prevention", use_container_width=True, disabled=True)
-    st.button("Targeting Accuracy", use_container_width=True, disabled=True)
-    st.button("Customer Intelligence", use_container_width=True, disabled=True)
-    st.button("Dimensionality Mgmt", use_container_width=True, disabled=True)
-    st.button("Cross-sell Engine", use_container_width=True, disabled=True)
-    st.button("Causal ROI Analysis", use_container_width=True, disabled=True)
-    st.button("Document AI", use_container_width=True, disabled=True)
-    st.button("Enterprise Search", use_container_width=True, disabled=True)
-    st.button("Real-time Monitoring", use_container_width=True, disabled=True)
-    st.button("Safe RAG Systems", use_container_width=True, disabled=True)
-    st.button("Agent Orchestration", use_container_width=True, disabled=True)
+    st.page_link("main.py", label="Main")
+    st.page_link("pages/01_AB_Testing.py", label="AB Testing")
+    st.page_link("pages/02_Survival.py", label="Survival")
+    st.page_link("pages/03_Classification.py", label="Classification")
+    st.page_link("pages/04_Segmentation.py", label="Segmentation")
+    st.page_link("pages/05_PCA.py", label="PCA")
+    st.page_link("pages/06_Rules.py", label="Rules")
+    st.page_link("pages/07_Causal.py", label="Causal")
+    st.page_link("pages/08_Knowledge_Graph.py", label="Knowledge Graph")
+    st.page_link("pages/09_Retrieval.py", label="Retrieval")
+    st.page_link("pages/10_Governance.py", label="Governance")
+    st.page_link("pages/11_RAG.py", label="RAG")
+    st.page_link("pages/12_Agents.py", label="Agents")
 
     st.markdown("---")
     st.markdown("**Contact**")
@@ -431,7 +429,7 @@ with st.container():
         )
 
         if st.button("View Full Case Study", type="primary", use_container_width=True):
-            st.switch_page("pages/01_project_ab_testing.py")
+            st.switch_page("pages/01_AB_Testing.py")
 
     st.markdown("</div>", unsafe_allow_html=True)
 
