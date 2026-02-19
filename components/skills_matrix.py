@@ -4,10 +4,10 @@ import streamlit as st
 def skills_matrix():
     """Display hard and soft skills in organized sections"""
 
-    st.header("🎯 Technical Skills & Governance Expertise")
+    st.header("Technical Skills & Governance Expertise")
 
     # Hard Skills
-    with st.expander("🔧 Hard Skills (Click to Expand)", expanded=True):
+    with st.expander("Hard Skills (Click to Expand)", expanded=True):
         col1, col2 = st.columns(2)
 
         with col1:
@@ -52,7 +52,7 @@ def skills_matrix():
             """)
 
     # Soft Skills
-    with st.expander("💼 Soft Skills & Leadership", expanded=True):
+    with st.expander("Soft Skills & Leadership", expanded=True):
         col1, col2 = st.columns(2)
 
         with col1:

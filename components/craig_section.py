@@ -4,7 +4,7 @@ import streamlit as st
 def show_craig(context, role, action, impact, growth):
     """Display CRAIG framework (Context, Role, Action, Impact, Growth)"""
 
-    tabs = st.tabs(["🎯 Context", "👤 Role", "⚡ Action", "💰 Impact", "📈 Growth"])
+    tabs = st.tabs(["Context", "Role", "Action", "Impact", "Growth"])
 
     with tabs[0]:
         st.markdown("### The Business Problem")

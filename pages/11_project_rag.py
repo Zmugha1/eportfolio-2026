@@ -3,5 +3,5 @@ import streamlit as st
 st.set_page_config(page_title="RAG Safety | Zubia Mughal", layout="wide")
 st.title("RAG Safety & Evaluation")
 st.info("Case study coming soon.")
-if st.button("← Back to Portfolio"):
+if st.button("Back to Portfolio"):
     st.switch_page("app.py")

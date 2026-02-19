@@ -36,11 +36,6 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-st.markdown(
-    '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">',
-    unsafe_allow_html=True,
-)
-
 # Load data with error handling
 @st.cache_data
 def load_data():
@@ -125,5 +120,5 @@ if governance:
 
 # Back to portfolio
 st.markdown("---")
-if st.button("← Back to Portfolio"):
+if st.button("Back to Portfolio"):
     st.switch_page("app.py")

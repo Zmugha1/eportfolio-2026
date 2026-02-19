@@ -3,7 +3,7 @@ import streamlit as st
 # Page config
 st.set_page_config(
     page_title="Zubia Mughal | Decision Intelligence Architect",
-    page_icon="🛡️",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -154,32 +154,32 @@ st.markdown(
 
 # SIDEBAR - HIRING-FOCUSED NAVIGATION (Not file names!)
 with st.sidebar:
-    st.markdown("### 🎯 Impact Areas")
+    st.markdown("### Impact Areas")
     st.caption("Select a case study to view governance framework & ROI")
 
     # Navigation buttons that sound like business outcomes
-    if st.button("📧 Campaign Optimization", use_container_width=True, type="primary"):
+    if st.button("Campaign Optimization", use_container_width=True, type="primary"):
         st.switch_page("pages/01_project_ab_testing.py")
 
     st.markdown("**Coming Soon:**")
 
-    st.button("⏱️ Churn Prevention", use_container_width=True, disabled=True)
-    st.button("🎯 Targeting Accuracy", use_container_width=True, disabled=True)
-    st.button("👥 Customer Intelligence", use_container_width=True, disabled=True)
-    st.button("📉 Dimensionality Mgmt", use_container_width=True, disabled=True)
-    st.button("🛒 Cross-sell Engine", use_container_width=True, disabled=True)
-    st.button("📊 Causal ROI Analysis", use_container_width=True, disabled=True)
-    st.button("📄 Document AI", use_container_width=True, disabled=True)
-    st.button("🔍 Enterprise Search", use_container_width=True, disabled=True)
-    st.button("⚡ Real-time Monitoring", use_container_width=True, disabled=True)
-    st.button("🤖 Safe RAG Systems", use_container_width=True, disabled=True)
-    st.button("🎛️ Agent Orchestration", use_container_width=True, disabled=True)
+    st.button("Churn Prevention", use_container_width=True, disabled=True)
+    st.button("Targeting Accuracy", use_container_width=True, disabled=True)
+    st.button("Customer Intelligence", use_container_width=True, disabled=True)
+    st.button("Dimensionality Mgmt", use_container_width=True, disabled=True)
+    st.button("Cross-sell Engine", use_container_width=True, disabled=True)
+    st.button("Causal ROI Analysis", use_container_width=True, disabled=True)
+    st.button("Document AI", use_container_width=True, disabled=True)
+    st.button("Enterprise Search", use_container_width=True, disabled=True)
+    st.button("Real-time Monitoring", use_container_width=True, disabled=True)
+    st.button("Safe RAG Systems", use_container_width=True, disabled=True)
+    st.button("Agent Orchestration", use_container_width=True, disabled=True)
 
     st.markdown("---")
     st.markdown("**Contact**")
-    st.markdown("📧 zubiamL4L@gmail.com")
-    st.markdown("🔗 [LinkedIn](https://linkedin.com/in/zubiamughal)")
-    st.markdown("💻 [GitHub](https://github.com/zmugha1)")
+    st.markdown("zubiamL4L@gmail.com")
+    st.markdown("[LinkedIn](https://linkedin.com/in/zubiamughal)")
+    st.markdown("[GitHub](https://github.com/zmugha1)")
 
 # MAIN CONTENT
 col1, col2 = st.columns([3, 1])
@@ -217,7 +217,7 @@ with col2:
 st.markdown("---")
 
 # METRICS ROW - High Contrast Dark Cards
-st.markdown("### 📊 Enterprise Impact Metrics")
+st.markdown("### Enterprise Impact Metrics")
 m1, m2, m3, m4 = st.columns(4)
 
 with m1:
@@ -266,9 +266,9 @@ with m4:
 
 # SKILLS MATRIX
 st.markdown("---")
-st.markdown("### 🛡️ Governance-First Capabilities")
+st.markdown("### Governance-First Capabilities")
 
-tab1, tab2 = st.tabs(["🔧 Technical Architecture", "💼 Strategic Leadership"])
+tab1, tab2 = st.tabs(["Technical Architecture", "Strategic Leadership"])
 
 with tab1:
     c1, c2 = st.columns(2)
@@ -382,7 +382,7 @@ with tab2:
 
 # FEATURED PROJECT (The Hiring Hook)
 st.markdown("---")
-st.markdown("### 🎨 Featured Case Study")
+st.markdown("### Featured Case Study")
 
 with st.container():
     st.markdown('<div class="project-card">', unsafe_allow_html=True)
@@ -391,7 +391,7 @@ with st.container():
 
     with col1:
         st.markdown(
-            '<p class="project-title">📧 Campaign Optimization with MRM</p>',
+            '<p class="project-title">Campaign Optimization with MRM</p>',
             unsafe_allow_html=True,
         )
         st.markdown(
@@ -430,14 +430,14 @@ with st.container():
             unsafe_allow_html=True,
         )
 
-        if st.button("View Full Case Study →", type="primary", use_container_width=True):
+        if st.button("View Full Case Study", type="primary", use_container_width=True):
             st.switch_page("pages/01_project_ab_testing.py")
 
     st.markdown("</div>", unsafe_allow_html=True)
 
 # ABOUT SECTION
 st.markdown("---")
-st.markdown("### 👩‍💼 About")
+st.markdown("### About")
 
 col1, col2 = st.columns([2, 1])
 with col1:
@@ -457,7 +457,7 @@ with col1:
 
 with col2:
     st.markdown("**Hiring Status**")
-    st.markdown("🟢 **Open to Opportunities**")
+    st.markdown("**Open to Opportunities**")
     st.markdown("**Target Roles:**")
     st.markdown("• Senior Applied Data Scientist (IC-3/4)")
     st.markdown("• Decision Intelligence Lead")
