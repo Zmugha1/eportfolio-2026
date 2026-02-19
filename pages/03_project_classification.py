@@ -1,10 +1,7 @@
-"""Case Study: Production Classification."""
-
+"""Project 3: Production Classification — Coming soon."""
 import streamlit as st
-
 st.set_page_config(page_title="Production Classification | Zubia Mughal", layout="wide")
 st.title("Production Classification")
-st.markdown("*Drift Detection, Model Registry, MLflow*")
-st.info("Case study content coming soon. 99.2% uptime, zero uncaught degradations.")
+st.info("Case study coming soon.")
 if st.button("← Back to Portfolio"):
     st.switch_page("app.py")

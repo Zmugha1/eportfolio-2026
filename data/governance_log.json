@@ -1,0 +1,39 @@
+{
+  "model_id": "AB_TEST_2024_Q1_V1",
+  "model_name": "Governed A/B Testing with MRM",
+  "risk_tier": "Medium",
+  "audit_trail": [
+    {
+      "timestamp": "2024-01-15T09:00:00Z",
+      "event": "experiment_design_approved",
+      "actor": "Model Risk Committee",
+      "details": "Chi-Square test design, power=0.80, alpha=0.05, sample size 5000/variant"
+    },
+    {
+      "timestamp": "2024-01-20T14:30:00Z",
+      "event": "fairness_audit_4_5ths_rule",
+      "actor": "Compliance Team",
+      "details": "Segment-level parity check passed. No adverse impact detected per 4/5ths rule."
+    },
+    {
+      "timestamp": "2024-01-22T11:00:00Z",
+      "event": "statistical_validation",
+      "actor": "Quantitative Analytics",
+      "details": "p-value=0.0032, effect size=0.18. Statistically significant lift in variant B."
+    },
+    {
+      "timestamp": "2024-01-25T16:00:00Z",
+      "event": "stakeholder_approval",
+      "actor": "VP Product",
+      "details": "Rollout approved. $387K risk-adjusted revenue impact documented."
+    },
+    {
+      "timestamp": "2024-01-26T08:00:00Z",
+      "event": "production_deployment",
+      "actor": "MLOps",
+      "details": "Variant B deployed to 100% traffic. Monitoring enabled."
+    }
+  ],
+  "version": "1.0.0",
+  "last_updated": "2024-01-26T08:00:00Z"
+}

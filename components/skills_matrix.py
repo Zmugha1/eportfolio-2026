@@ -12,8 +12,9 @@ HARD_SKILLS = {
             ("Model Risk Management", "Expert"),
             ("AI Safety & Evaluation", "Expert"),
             ("Statistical Validation", "Expert"),
-            ("Fairness Auditing", "Advanced"),
+            ("Fairness Auditing (4/5ths Rule)", "Expert"),
             ("Bias Detection", "Advanced"),
+            ("Early Stopping Protocols", "Advanced"),
         ],
     },
     "Machine Learning": {
@@ -21,19 +22,22 @@ HARD_SKILLS = {
             ("Survival Analysis", "Expert"),
             ("Causal Inference", "Expert"),
             ("GraphRAG", "Advanced"),
-            ("Experimental Design (A/B Testing)", "Expert"),
+            ("Experimental Design", "Expert"),
             ("Retrieval Engineering", "Advanced"),
             ("Agent Orchestration", "Advanced"),
+            ("Chi-Square Testing", "Expert"),
+            ("Power Analysis", "Expert"),
         ],
     },
     "MLOps & Production": {
         "skills": [
             ("Azure ML", "Advanced"),
             ("MLflow", "Expert"),
-            ("Vector DBs (Pinecone/Chroma)", "Advanced"),
+            ("Vector DBs", "Advanced"),
             ("Feature Stores", "Advanced"),
             ("Drift Detection", "Expert"),
             ("CI/CD for ML", "Advanced"),
+            ("Cost Optimization", "Advanced"),
         ],
     },
     "Data Engineering": {
@@ -74,7 +78,7 @@ SOFT_SKILLS = {
         "skills": [
             ("Experimental design strategy", "Expert"),
             ("Cost-benefit analysis under uncertainty", "Expert"),
-            ("Ethics and fairness advocacy", "Expert"),
+            ("Ethics advocacy", "Expert"),
         ],
     },
     "Production Leadership": {
