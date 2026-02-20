@@ -13,7 +13,7 @@ def render_sidebar_nav():
         st.page_link("pages/02_Survival.py", label="Survival")
         st.page_link("pages/03_Classification.py", label="Classification")
         st.page_link("pages/04_Segmentation.py", label="Segmentation")
-        st.page_link("pages/05_PCA.py", label="PCA")
+        st.page_link("pages/05_PCA.py", label="Feature Compression")
         st.page_link("pages/06_Rules.py", label="Rules")
         st.page_link("pages/07_Causal.py", label="Causal")
         st.page_link("pages/08_Knowledge_Graph.py", label="Knowledge Graph")
