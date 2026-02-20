@@ -11,12 +11,14 @@ import streamlit as st
 from scipy import stats
 
 from components.craig_section import craig_section
+from components.sidebar_nav import render_sidebar_nav
 
 st.set_page_config(
     page_title="AB Testing | Zubia Mughal",
     layout="wide",
     initial_sidebar_state="expanded",
 )
+render_sidebar_nav()
 
 # Paths
 BASE = Path(__file__).parent.parent

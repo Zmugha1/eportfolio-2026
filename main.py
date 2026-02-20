@@ -1,5 +1,7 @@
 import streamlit as st
 
+from components.sidebar_nav import render_sidebar_nav
+
 # Page config
 st.set_page_config(
     page_title="Zubia Mughal | Decision Intelligence Architect",
@@ -154,30 +156,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# SIDEBAR - INTUITIVE NAVIGATION
-with st.sidebar:
-    st.markdown("### Navigation")
-    st.caption("Select a case study to view governance framework & ROI")
-
-    st.page_link("app.py", label="Main")
-    st.page_link("pages/01_AB_Testing.py", label="AB Testing")
-    st.page_link("pages/02_Survival.py", label="Survival")
-    st.page_link("pages/03_Classification.py", label="Classification")
-    st.page_link("pages/04_Segmentation.py", label="Segmentation")
-    st.page_link("pages/05_PCA.py", label="PCA")
-    st.page_link("pages/06_Rules.py", label="Rules")
-    st.page_link("pages/07_Causal.py", label="Causal")
-    st.page_link("pages/08_Knowledge_Graph.py", label="Knowledge Graph")
-    st.page_link("pages/09_Retrieval.py", label="Retrieval")
-    st.page_link("pages/10_Governance.py", label="Governance")
-    st.page_link("pages/11_RAG.py", label="RAG")
-    st.page_link("pages/12_Agents.py", label="Agents")
-
-    st.markdown("---")
-    st.markdown("**Contact**")
-    st.markdown("zubiamL4L@gmail.com")
-    st.markdown("[LinkedIn](https://linkedin.com/in/zubiamughal)")
-    st.markdown("[GitHub](https://github.com/zmugha1)")
+# SIDEBAR - consistent nav on all pages (Main, AB Testing, etc.)
+render_sidebar_nav()
 
 # MAIN CONTENT
 st.markdown('<p class="main-header">Zubia Mughal, Ed.D.</p>', unsafe_allow_html=True)

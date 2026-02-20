@@ -1,6 +1,10 @@
 """RAG Safety & Evaluation, Coming soon."""
 import streamlit as st
+
+from components.sidebar_nav import render_sidebar_nav
+
 st.set_page_config(page_title="RAG | Zubia Mughal", layout="wide")
+render_sidebar_nav()
 st.title("RAG Safety & Evaluation")
 st.info("Case study coming soon.")
 if st.button("Back to Portfolio"):

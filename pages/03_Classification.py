@@ -10,12 +10,14 @@ import pandas as pd
 import streamlit as st
 
 from components.craig_section import _key_terms_box
+from components.sidebar_nav import render_sidebar_nav
 
 st.set_page_config(
     page_title="Smart Targeting | Zubia Mughal",
     layout="wide",
     initial_sidebar_state="expanded",
 )
+render_sidebar_nav()
 
 # Paths
 BASE = Path(__file__).parent.parent
