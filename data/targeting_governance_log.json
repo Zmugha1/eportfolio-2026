@@ -1,0 +1,35 @@
+{
+  "project": "Smart Targeting with Classification",
+  "risk_tier": "Medium-High",
+  "approval": "VP Sales",
+  "model_performance": {
+    "auc": 0.851,
+    "precision_at_threshold": 0.75,
+    "recall_at_threshold": 0.68,
+    "threshold": 75,
+    "sample_size": 20000,
+    "n_features": 50
+  },
+  "business_impact": {
+    "calls_before_per_week": 1000,
+    "calls_after_per_week": 200,
+    "conversion_before_pct": 0.05,
+    "conversion_after_pct": 0.75,
+    "revenue_before": 200000,
+    "revenue_after": 600000,
+    "cost_savings_annual": 1600000,
+    "efficiency_lift": 3.0,
+    "model_dev_cost": 80000,
+    "roi_year1": 20
+  },
+  "bias_audit": {
+    "healthcare": {"precision": 0.94, "support": 4200},
+    "finance": {"precision": 0.94, "support": 5100},
+    "tech": {"precision": 0.95, "support": 10700}
+  },
+  "drift_detection": {
+    "baseline_date": "2023-01-01",
+    "alert_threshold_psi": 0.25,
+    "last_alert": null
+  }
+}
