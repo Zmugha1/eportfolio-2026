@@ -21,7 +21,15 @@ def show_craig(context, role, action, impact, growth, key_terms=None, action_cod
     key_terms: dict mapping tab names to HTML content for Key Terms boxes
     action_code: optional SQL/code block for Action tab
     """
-
+    st.markdown(
+        """
+        <style>
+        .stTabs [data-baseweb="tab"] { color: #CCD6F6 !important; }
+        .stTabs [aria-selected="true"] { color: #CCD6F6 !important; border-color: #8892B0 !important; }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
     tab1, tab2, tab3, tab4, tab5 = st.tabs(["Context", "Role", "Action", "Impact", "Growth"])
 
     with tab1:

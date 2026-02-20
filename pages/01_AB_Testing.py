@@ -33,6 +33,11 @@ st.markdown(
                   border-radius: 12px; padding: 1rem; margin: 0.5rem 0; color: #CCD6F6 !important; }
     .governance-event { border-left: 4px solid #8892B0; padding-left: 1rem; margin: 0.5rem 0; color: #CCD6F6 !important; }
     [data-testid="stVerticalBlock"] > div { font-family: 'Inter', -apple-system, sans-serif !important; font-weight: 400 !important; color: #CCD6F6 !important; }
+    [data-testid="stMarkdown"] p, [data-testid="stMarkdown"] span, [data-testid="stMarkdown"] div { color: #CCD6F6 !important; }
+    [data-testid="stMarkdown"] h1, [data-testid="stMarkdown"] h2, [data-testid="stMarkdown"] h3 { color: #CCD6F6 !important; }
+    [data-testid="stTabs"] [role="tab"] { color: #CCD6F6 !important; }
+    [data-testid="stTabs"] [aria-selected="true"] { color: #CCD6F6 !important; border-bottom-color: #8892B0 !important; }
+    [data-testid="stTabs"] button { color: #CCD6F6 !important; }
     </style>
     """,
     unsafe_allow_html=True,

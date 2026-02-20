@@ -1,0 +1,35 @@
+{
+  "project": "Churn Prediction with Survival Analysis",
+  "risk_tier": "High",
+  "approval": "VP Customer Success + Legal",
+  "model_performance": {
+    "concordance_index": 0.6872996002986779,
+    "sample_size": 5000,
+    "censored_pct": 0.3042
+  },
+  "business_impact": {
+    "customers_at_risk": 30,
+    "revenue_at_risk": 49840.200000000004,
+    "potential_savings": 14952.060000000001,
+    "intervention_roi": 0.2990412
+  },
+  "fairness_audit": {
+    "smb": {
+      "churn_rate": 0.6989,
+      "avg_tenure": 477.54
+    },
+    "startup": {
+      "churn_rate": 0.6789,
+      "avg_tenure": 458.59
+    },
+    "enterprise": {
+      "churn_rate": 0.7123,
+      "avg_tenure": 490.22
+    }
+  },
+  "hazard_ratios": {
+    "monthly_spend": 0.9898591929310864,
+    "support_tickets": 1.0475855045887854,
+    "feature_adoption": 0.4210264974428836
+  }
+}
