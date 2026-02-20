@@ -1,0 +1,31 @@
+{
+  "project": "Customer Intelligence (Segmentation with Data Contracts)",
+  "risk_tier": "High",
+  "approval": "CISO + DPO",
+  "model_performance": {
+    "silhouette_score": 0.68,
+    "n_segments": 5,
+    "stability_runs": 10,
+    "min_segment_pct": 5,
+    "max_segment_pct": 40
+  },
+  "data_governance": {
+    "opted_out_pct": 0.12,
+    "consent_filtered": true,
+    "schema_validated": true,
+    "gdpr_requests_fulfilled": 0
+  },
+  "segments": {
+    "VIP Champions": {"pct": 8, "revenue_share": 45},
+    "Weekend Warriors": {"pct": 22, "revenue_share": 18},
+    "Bargain Hunters": {"pct": 35, "revenue_share": 22},
+    "Newcomers": {"pct": 25, "revenue_share": 10},
+    "At-Risk Drifters": {"pct": 10, "revenue_share": 5}
+  },
+  "business_impact": {
+    "email_revenue_lift_pct": 340,
+    "clv_lift_pct": 28,
+    "unsubscribe_reduction_pct": 60,
+    "annual_revenue_lift": 3600000
+  }
+}

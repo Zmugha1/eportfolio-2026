@@ -1,0 +1,21 @@
+customer_id,recency,frequency,monetary,engagement,segment
+1,15,42,285,vip_champions,VIP Champions
+2,2,8,45,newcomers,Newcomers
+3,89,3,120,bargain_hunters,Bargain Hunters
+4,5,35,420,vip_champions,VIP Champions
+5,1,12,65,newcomers,Newcomers
+6,45,18,95,weekend_warriors,Weekend Warriors
+7,120,2,35,at_risk,At-Risk Drifters
+8,8,28,310,vip_champions,VIP Champions
+9,3,6,52,newcomers,Newcomers
+10,67,12,88,bargain_hunters,Bargain Hunters
+11,22,25,195,weekend_warriors,Weekend Warriors
+12,95,4,65,at_risk,At-Risk Drifters
+13,12,38,365,vip_champions,VIP Champions
+14,4,9,58,newcomers,Newcomers
+15,78,14,95,bargain_hunters,Bargain Hunters
+16,18,22,175,weekend_warriors,Weekend Warriors
+17,110,3,42,at_risk,At-Risk Drifters
+18,6,32,298,vip_champions,VIP Champions
+19,2,7,48,newcomers,Newcomers
+20,55,16,102,bargain_hunters,Bargain Hunters
