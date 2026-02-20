@@ -1,33 +1,62 @@
 import streamlit as st
 
 
-def show_craig(context, role, action, impact, growth):
-    """Display CRAIG framework (Context, Role, Action, Impact, Growth)"""
+def _key_terms_box(html_content: str) -> None:
+    """Render Key Terms callout with McKinsey-style dark theme."""
+    st.markdown(
+        f"""
+        <div style='background-color: #112240; padding: 20px; border-radius: 8px; border-left: 4px solid #64FFDA; margin: 20px 0;'>
+            <p style='color: #64FFDA; font-weight: 600; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.1em;'>Key Terms Explained</p>
+            <div style='color: #CCD6F6; font-size: 0.95em; line-height: 1.6;'>
+                {html_content}
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
 
-    tabs = st.tabs(["Context", "Role", "Action", "Impact", "Growth"])
 
-    with tabs[0]:
-        st.markdown("### The Business Problem")
+def show_craig(context, role, action, impact, growth, key_terms=None, action_code=None):
+    """Display CRAIG framework with narrative storytelling and Key Terms callouts.
+    key_terms: dict mapping tab names to HTML content for Key Terms boxes
+    action_code: optional SQL/code block for Action tab
+    """
+
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["Context", "Role", "Action", "Impact", "Growth"])
+
+    with tab1:
+        st.subheader("The Business Problem")
         st.write(context)
+        if key_terms and "context" in key_terms:
+            _key_terms_box(key_terms["context"])
 
-    with tabs[1]:
-        st.markdown("### My Role")
+    with tab2:
+        st.subheader("Decision Intelligence Architect")
         st.write(role)
+        if key_terms and "role" in key_terms:
+            _key_terms_box(key_terms["role"])
 
-    with tabs[2]:
-        st.markdown("### Technical Implementation")
+    with tab3:
+        st.subheader("Technical Implementation & Governance Controls")
         st.write(action)
+        if action_code:
+            st.code(action_code, language="sql")
+        if key_terms and "action" in key_terms:
+            _key_terms_box(key_terms["action"])
 
-    with tabs[3]:
-        st.markdown("### Measurable Results")
+    with tab4:
+        st.subheader("Business Outcomes & Risk Mitigation")
         st.write(impact)
+        if key_terms and "impact" in key_terms:
+            _key_terms_box(key_terms["impact"])
 
-    with tabs[4]:
-        st.markdown("### Next Iteration")
+    with tab5:
+        st.subheader("Next Iteration: Bayesian Optimization")
         st.write(growth)
+        if key_terms and "growth" in key_terms:
+            _key_terms_box(key_terms["growth"])
 
 
-# Alias for backward compatibility with 01_AB_Testing.py
-def craig_section(context, role, action, impact, growth):
-    """Alias for show_craig - CRAIG framework display"""
-    show_craig(context, role, action, impact, growth)
+def craig_section(context, role, action, impact, growth, key_terms=None, action_code=None):
+    """CRAIG framework display with Key Terms callout boxes."""
+    show_craig(context, role, action, impact, growth, key_terms, action_code)
