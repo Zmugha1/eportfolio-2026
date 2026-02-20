@@ -24,13 +24,15 @@ DATA_DIR = BASE / "data"
 CSV_PATH = DATA_DIR / "ab_test_data.csv"
 JSON_PATH = DATA_DIR / "governance_log.json"
 
-# Custom CSS
+# Custom CSS - consistent font, no mixed weights
 st.markdown(
     """
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
     .metric-card { background: rgba(100, 255, 218, 0.08); border: 1px solid rgba(100, 255, 218, 0.2);
                   border-radius: 12px; padding: 1rem; margin: 0.5rem 0; }
     .governance-event { border-left: 4px solid #64FFDA; padding-left: 1rem; margin: 0.5rem 0; }
+    [data-testid="stVerticalBlock"] > div { font-family: 'Inter', -apple-system, sans-serif !important; font-weight: 400 !important; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -97,8 +99,8 @@ craig_section(
     statistical evidence. Without governance, a failed campaign could cost $480K annually in wasted spend while annoying
     50,000 customers.
 
-    The **Control Group** (existing email) converted at 11.88%, while we needed to test if the **Treatment Group**
-    (new design) could improve this without creating a **Governance Gap**—the missing oversight that allows untested
+    The Control Group (existing email) converted at 11.88%, while we needed to test if the Treatment Group
+    (new design) could improve this without creating a Governance Gap—the missing oversight that allows untested
     changes to hurt revenue and customer experience.""",
     role="""Rather than simply "running a test," I architected the Model Risk Management (MRM) framework that determined
     whether this experiment was safe to launch, who needed to approve it, and how to detect harm before it spread.
@@ -116,33 +118,33 @@ craig_section(
     impact="""Risk-adjusted revenue of """ + gov_revenue + """ (accounting for 10% uncertainty buffer) with $480K cost
     avoidance from eliminated wasteful campaigns. Zero governance incidents or fairness violations.
 
-    The **Relative Lift** of +17.9% (Treatment over Control) translated to $387K after applying a conservative
-    risk-adjustment. The **Fairness Audit** confirmed no disparate impact—all segments passed the 4/5ths rule.""",
-    growth="""Next iteration: migrate to **Bayesian A/B Testing** with Thompson Sampling to reach conclusions faster
-    using smaller sample sizes. Explore **Multi-Armed Bandit** for dynamic traffic allocation during tests. Add
-    **Equalized Odds** as a fairness metric for true positive parity across demographics.
+    The Relative Lift of +17.9% (Treatment over Control) translated to $387K after applying a conservative
+    risk-adjustment. The Fairness Audit confirmed no disparate impact—all segments passed the 4/5ths rule.""",
+    growth="""Next iteration: migrate to Bayesian A/B Testing with Thompson Sampling to reach conclusions faster
+    using smaller sample sizes. Explore Multi-Armed Bandit for dynamic traffic allocation during tests. Add
+    Equalized Odds as a fairness metric for true positive parity across demographics.
 
     The MRM template from this project has been adopted by 3 other product teams for their experiment governance.""",
     action_code=ACTION_SQL,
     key_terms={
-        "context": """<b>Control Group:</b> The "old faithful" baseline—customers who receive the existing email design for comparison purposes.<br><br>
-<b>Treatment Group:</b> The "new hotness"—customers who receive the experimental variant being tested.<br><br>
-<b>Governance Gap:</b> The missing oversight framework that allows untested changes to impact revenue and customer experience without risk assessment.""",
-        "role": """<b>MRM (Model Risk Management):</b> A governance framework that classifies experiments by risk level (Low/Medium/High) and requires appropriate approvals before launch.<br><br>
-<b>Risk Tier:</b> Classification system—Medium Risk means potential exposure of 15% of revenue, requiring Director-level approval.<br><br>
-<b>Decision Intelligence:</b> The discipline of combining data science with business strategy and risk management to enable confident executive decision-making.""",
-        "action": """<b>Chi-Square Test:</b> A statistical "lie detector" that measures whether the difference between Control and Treatment groups is real or just luck.<br><br>
-<b>P-Value (0.00056):</b> The probability that results occurred by random chance. Our result (0.05%) means 99.94% confidence the email variant actually works.<br><br>
-<b>Statistical Power (95%):</b> The likelihood of detecting a true effect if it exists. 95% means if we ran this 100 times, we'd catch the real difference 95 times (only 5 false negatives).<br><br>
-<b>Early Stopping:</b> Emergency brake rules that halt the experiment if harm is detected (P&lt;0.001 + &gt;20% negative lift) or success is confirmed (saving time/money).<br><br>
-<b>4/5ths Rule:</b> Legal compliance standard checking for discrimination—if any customer segment converts at less than 80% of the best segment's rate, it triggers fairness review.""",
-        "impact": """<b>Relative Lift (+17.9%):</b> The percentage improvement of Treatment over Control. Calculated as (Treatment Rate - Control Rate) / Control Rate.<br><br>
-<b>Risk-Adjusted ROI:</b> Conservative revenue estimate accounting for potential market changes (90% of gross revenue, or $387K vs $430K raw).<br><br>
-<b>Cost Avoidance:</b> Money saved by NOT running underperforming campaigns ($480K annually).<br><br>
-<b>Fairness Audit:</b> Disparate impact analysis ensuring the email variant didn't discriminate against protected customer segments (all passed 4/5ths rule).""",
-        "growth": """<b>Bayesian A/B Testing:</b> Advanced method using prior knowledge to reach conclusions faster with smaller sample sizes (Thompson Sampling).<br><br>
-<b>Multi-Armed Bandit:</b> Algorithm that dynamically shifts traffic to better-performing variants during the test (vs fixed 50/50 split).<br><br>
-<b>Equalized Odds:</b> Fairness metric ensuring the model performs equally well across different customer demographics (true positive parity).""",
+        "context": """Control Group: The "old faithful" baseline—customers who receive the existing email design for comparison purposes.<br><br>
+Treatment Group: The "new hotness"—customers who receive the experimental variant being tested.<br><br>
+Governance Gap: The missing oversight framework that allows untested changes to impact revenue and customer experience without risk assessment.""",
+        "role": """MRM (Model Risk Management): A governance framework that classifies experiments by risk level (Low/Medium/High) and requires appropriate approvals before launch.<br><br>
+Risk Tier: Classification system—Medium Risk means potential exposure of 15% of revenue, requiring Director-level approval.<br><br>
+Decision Intelligence: The discipline of combining data science with business strategy and risk management to enable confident executive decision-making.""",
+        "action": """Chi-Square Test: A statistical "lie detector" that measures whether the difference between Control and Treatment groups is real or just luck.<br><br>
+P-Value (0.00056): The probability that results occurred by random chance. Our result (0.05%) means 99.94% confidence the email variant actually works.<br><br>
+Statistical Power (95%): The likelihood of detecting a true effect if it exists. 95% means if we ran this 100 times, we'd catch the real difference 95 times (only 5 false negatives).<br><br>
+Early Stopping: Emergency brake rules that halt the experiment if harm is detected (P&lt;0.001 + &gt;20% negative lift) or success is confirmed (saving time/money).<br><br>
+4/5ths Rule: Legal compliance standard checking for discrimination—if any customer segment converts at less than 80% of the best segment's rate, it triggers fairness review.""",
+        "impact": """Relative Lift (+17.9%): The percentage improvement of Treatment over Control. Calculated as (Treatment Rate - Control Rate) / Control Rate.<br><br>
+Risk-Adjusted ROI: Conservative revenue estimate accounting for potential market changes (90% of gross revenue, or $387K vs $430K raw).<br><br>
+Cost Avoidance: Money saved by NOT running underperforming campaigns ($480K annually).<br><br>
+Fairness Audit: Disparate impact analysis ensuring the email variant didn't discriminate against protected customer segments (all passed 4/5ths rule).""",
+        "growth": """Bayesian A/B Testing: Advanced method using prior knowledge to reach conclusions faster with smaller sample sizes (Thompson Sampling).<br><br>
+Multi-Armed Bandit: Algorithm that dynamically shifts traffic to better-performing variants during the test (vs fixed 50/50 split).<br><br>
+Equalized Odds: Fairness metric ensuring the model performs equally well across different customer demographics (true positive parity).""",
     },
 )
 
