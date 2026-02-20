@@ -44,7 +44,7 @@
   },
   "business_impact": {
     "monthly_revenue_lift": 680000.0,
-    "annual_revenue_lift": 8160000.0,
+    "annual_revenue_lift": 3600000.0,
     "click_rate_improvement": "16.4x",
     "unsubscribe_reduction": "60%"
   }
