@@ -1,4 +1,4 @@
-"""Dimensionality Reduction (PCA) — Coming soon."""
+"""Dimensionality Reduction (PCA), Coming soon."""
 import streamlit as st
 st.set_page_config(page_title="PCA | Zubia Mughal", layout="wide")
 st.title("Dimensionality Reduction")

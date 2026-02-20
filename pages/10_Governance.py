@@ -1,4 +1,4 @@
-"""Governance Dashboards — Coming soon."""
+"""Governance Dashboards, Coming soon."""
 import streamlit as st
 st.set_page_config(page_title="Governance | Zubia Mughal", layout="wide")
 st.title("Governance Dashboards")

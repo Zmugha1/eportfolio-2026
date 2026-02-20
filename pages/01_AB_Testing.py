@@ -24,15 +24,15 @@ DATA_DIR = BASE / "data"
 CSV_PATH = DATA_DIR / "ab_test_data.csv"
 JSON_PATH = DATA_DIR / "governance_log.json"
 
-# Custom CSS - consistent font, no mixed weights
+# Custom CSS - uniform font and color, no green/teal
 st.markdown(
     """
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-    .metric-card { background: rgba(100, 255, 218, 0.08); border: 1px solid rgba(100, 255, 218, 0.2);
-                  border-radius: 12px; padding: 1rem; margin: 0.5rem 0; }
-    .governance-event { border-left: 4px solid #64FFDA; padding-left: 1rem; margin: 0.5rem 0; }
-    [data-testid="stVerticalBlock"] > div { font-family: 'Inter', -apple-system, sans-serif !important; font-weight: 400 !important; }
+    .metric-card { background: rgba(136, 146, 176, 0.08); border: 1px solid rgba(136, 146, 176, 0.2);
+                  border-radius: 12px; padding: 1rem; margin: 0.5rem 0; color: #CCD6F6 !important; }
+    .governance-event { border-left: 4px solid #8892B0; padding-left: 1rem; margin: 0.5rem 0; color: #CCD6F6 !important; }
+    [data-testid="stVerticalBlock"] > div { font-family: 'Inter', -apple-system, sans-serif !important; font-weight: 400 !important; color: #CCD6F6 !important; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -95,23 +95,23 @@ GROUP BY segment, variant;
 
 craig_section(
     context="""MegaShop, a mid-market e-commerce retailer, was burning $200K/month on unvalidated email campaigns.
-    Marketing leadership was gambling with company money—making decisions based on "gut feel" from open rates rather than
+    Marketing leadership was gambling with company money, making decisions based on "gut feel" from open rates rather than
     statistical evidence. Without governance, a failed campaign could cost $480K annually in wasted spend while annoying
     50,000 customers.
 
     The Control Group (existing email) converted at 11.88%, while we needed to test if the Treatment Group
-    (new design) could improve this without creating a Governance Gap—the missing oversight that allows untested
+    (new design) could improve this without creating a Governance Gap, the missing oversight that allows untested
     changes to hurt revenue and customer experience.""",
     role="""Rather than simply "running a test," I architected the Model Risk Management (MRM) framework that determined
     whether this experiment was safe to launch, who needed to approve it, and how to detect harm before it spread.
 
     As Decision Intelligence Architect, I owned the risk tier classification, designed the approval workflow, and
     documented the audit trail for compliance. This distinguishes the work from junior data scientists who execute
-    tests—I designed the governance system that makes those tests trustworthy.""",
+    tests, I designed the governance system that makes those tests trustworthy.""",
     action="""The implementation followed a four-phase governance control: (1) Pre-experiment power analysis to ensure
     we could detect real effects (""" + str(int(float(gov_power) * 100)) + """% power, 5000/variant per governance approval). (2) Chi-Square test for statistical
-    significance—our p-value of """ + gov_pvalue + """ means 99.7% confidence the lift is real. (3) 4/5ths rule fairness
-    audit across customer segments—all passed. (4) Early stopping rules: halt if harm detected (P<0.001 + >20% negative
+    significance, our p-value of """ + gov_pvalue + """ means 99.7% confidence the lift is real. (3) 4/5ths rule fairness
+    audit across customer segments, all passed. (4) Early stopping rules: halt if harm detected (P<0.001 + >20% negative
     lift) or success confirmed (saving time and budget).
 
     Below is the SQL that powers the analysis. Each step is commented to explain why it matters.""",
@@ -119,7 +119,7 @@ craig_section(
     avoidance from eliminated wasteful campaigns. Zero governance incidents or fairness violations.
 
     The Relative Lift of +17.9% (Treatment over Control) translated to $387K after applying a conservative
-    risk-adjustment. The Fairness Audit confirmed no disparate impact—all segments passed the 4/5ths rule.""",
+    risk-adjustment. The Fairness Audit confirmed no disparate impact, all segments passed the 4/5ths rule.""",
     growth="""Next iteration: migrate to Bayesian A/B Testing with Thompson Sampling to reach conclusions faster
     using smaller sample sizes. Explore Multi-Armed Bandit for dynamic traffic allocation during tests. Add
     Equalized Odds as a fairness metric for true positive parity across demographics.
@@ -127,17 +127,17 @@ craig_section(
     The MRM template from this project has been adopted by 3 other product teams for their experiment governance.""",
     action_code=ACTION_SQL,
     key_terms={
-        "context": """Control Group: The "old faithful" baseline—customers who receive the existing email design for comparison purposes.<br><br>
-Treatment Group: The "new hotness"—customers who receive the experimental variant being tested.<br><br>
+        "context": """Control Group: The "old faithful" baseline, customers who receive the existing email design for comparison purposes.<br><br>
+Treatment Group: The "new hotness", customers who receive the experimental variant being tested.<br><br>
 Governance Gap: The missing oversight framework that allows untested changes to impact revenue and customer experience without risk assessment.""",
         "role": """MRM (Model Risk Management): A governance framework that classifies experiments by risk level (Low/Medium/High) and requires appropriate approvals before launch.<br><br>
-Risk Tier: Classification system—Medium Risk means potential exposure of 15% of revenue, requiring Director-level approval.<br><br>
+Risk Tier: Classification system, Medium Risk means potential exposure of 15% of revenue, requiring Director-level approval.<br><br>
 Decision Intelligence: The discipline of combining data science with business strategy and risk management to enable confident executive decision-making.""",
         "action": """Chi-Square Test: A statistical "lie detector" that measures whether the difference between Control and Treatment groups is real or just luck.<br><br>
 P-Value (0.00056): The probability that results occurred by random chance. Our result (0.05%) means 99.94% confidence the email variant actually works.<br><br>
 Statistical Power (95%): The likelihood of detecting a true effect if it exists. 95% means if we ran this 100 times, we'd catch the real difference 95 times (only 5 false negatives).<br><br>
 Early Stopping: Emergency brake rules that halt the experiment if harm is detected (P&lt;0.001 + &gt;20% negative lift) or success is confirmed (saving time/money).<br><br>
-4/5ths Rule: Legal compliance standard checking for discrimination—if any customer segment converts at less than 80% of the best segment's rate, it triggers fairness review.""",
+4/5ths Rule: Legal compliance standard checking for discrimination, if any customer segment converts at less than 80% of the best segment's rate, it triggers fairness review.""",
         "impact": """Relative Lift (+17.9%): The percentage improvement of Treatment over Control. Calculated as (Treatment Rate - Control Rate) / Control Rate.<br><br>
 Risk-Adjusted ROI: Conservative revenue estimate accounting for potential market changes (90% of gross revenue, or $387K vs $430K raw).<br><br>
 Cost Avoidance: Money saved by NOT running underperforming campaigns ($480K annually).<br><br>
@@ -185,9 +185,9 @@ if governance:
     for event in governance.get("audit_trail", []):
         st.markdown(
             f"""
-            <div class="governance-event">
-                <strong>{event['event']}</strong> — {event['actor']}<br>
-                <small style="color: #8892B0;">{event['timestamp'][:10]}</small><br>
+            <div class="governance-event" style="color: #CCD6F6;">
+                <span style="font-weight: 500;">{event['event']}</span>, {event['actor']}<br>
+                <small>{event['timestamp'][:10]}</small><br>
                 {event['details']}
             </div>
             """,

@@ -1,6 +1,6 @@
 # Zubia Mughal E-Portfolio 2026
 
-Professional Streamlit e-portfolio targeting **Senior IC-3/Manager roles** ($160K-$200K). Decision Intelligence Architect—bridging $4.6M business impact with auditable AI.
+Professional Streamlit e-portfolio targeting **Senior IC-3/Manager roles** ($160K-$200K). Decision Intelligence Architect, bridging $4.6M business impact with auditable AI.
 
 ## Installation
 

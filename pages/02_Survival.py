@@ -1,4 +1,4 @@
-"""Survival Analysis for Churn — Coming soon."""
+"""Survival Analysis for Churn, Coming soon."""
 import streamlit as st
 st.set_page_config(page_title="Survival | Zubia Mughal", layout="wide")
 st.title("Survival Analysis for Churn")

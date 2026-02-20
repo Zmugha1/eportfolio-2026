@@ -2,11 +2,11 @@ import streamlit as st
 
 
 def _key_terms_box(html_content: str) -> None:
-    """Render Key Terms callout with McKinsey-style dark theme, even font weight."""
+    """Render Key Terms callout with dark theme, uniform font and color."""
     st.markdown(
         f"""
-        <div style='background-color: #112240; padding: 20px; border-radius: 8px; border-left: 4px solid #64FFDA; margin: 20px 0; font-family: Inter, -apple-system, sans-serif;'>
-            <p style='color: #64FFDA; font-weight: 500; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.1em;'>Key Terms Explained</p>
+        <div style='background-color: #112240; padding: 20px; border-radius: 8px; border-left: 4px solid #8892B0; margin: 20px 0; font-family: Inter, -apple-system, sans-serif;'>
+            <p style='color: #CCD6F6; font-weight: 500; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; letter-spacing: 0.1em;'>Key Terms Explained</p>
             <div style='color: #CCD6F6; font-size: 0.95em; line-height: 1.6; font-weight: 400;'>
                 {html_content}
             </div>

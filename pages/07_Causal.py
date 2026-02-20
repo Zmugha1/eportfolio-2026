@@ -1,4 +1,4 @@
-"""Causal Impact Analysis — Coming soon."""
+"""Causal Impact Analysis, Coming soon."""
 import streamlit as st
 st.set_page_config(page_title="Causal | Zubia Mughal", layout="wide")
 st.title("Causal Impact Analysis")

@@ -444,7 +444,7 @@ with col1:
     **Doctorate-trained Applied Data Scientist** with 23 years of enterprise systems architecture
     and 6 years applied ML research.
 
-    I specialize in **Decision Intelligence**—architecting governance-first ML systems that
+    I specialize in **Decision Intelligence**, architecting governance-first ML systems that
     executives trust and teams actually use. My background bridges rigorous statistical methodology
     (survival analysis, causal inference, experimental design) with production MLOps at scale.
 
