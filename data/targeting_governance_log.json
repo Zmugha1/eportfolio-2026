@@ -1,35 +1,96 @@
 {
-  "project": "Smart Targeting with Classification",
+  "project": "Smart Targeting (Classification)",
   "risk_tier": "Medium-High",
-  "approval": "VP Sales",
-  "model_performance": {
-    "auc": 0.851,
-    "precision_at_threshold": 0.75,
-    "recall_at_threshold": 0.68,
-    "threshold": 75,
-    "sample_size": 20000,
-    "n_features": 50
+  "approval": "VP Sales + Data Science Lead + Legal Review",
+  "model_version": "v1.2.3",
+  "performance": {
+    "auc_roc": 0.9283406463818786,
+    "cv_auc_mean": 0.9201868124620848,
+    "cv_auc_std": 0.008009794272657812,
+    "optimal_threshold": 0.48251723764062454,
+    "precision_at_threshold": 0.8796992481203008,
+    "recall_at_threshold": 0.9308445532435741
   },
   "business_impact": {
-    "calls_before_per_week": 1000,
-    "calls_after_per_week": 200,
-    "conversion_before_pct": 0.05,
-    "conversion_after_pct": 0.75,
-    "revenue_before": 200000,
-    "revenue_after": 600000,
-    "cost_savings_annual": 1600000,
-    "efficiency_lift": 3.0,
-    "model_dev_cost": 80000,
-    "roi_year1": 20
+    "cost_savings_annual": 24960000.0,
+    "calls_reduced_weekly": 6000,
+    "conversion_lift": "1.5x",
+    "efficiency_gain": "1.5x"
   },
-  "bias_audit": {
-    "healthcare": {"precision": 0.94, "support": 4200},
-    "finance": {"precision": 0.94, "support": 5100},
-    "tech": {"precision": 0.95, "support": 10700}
+  "fairness_audit": {
+    "group_a": {
+      "precision": 0.873,
+      "sample_size": 1183
+    },
+    "group_b": {
+      "precision": 0.862,
+      "sample_size": 727
+    },
+    "group_c": {
+      "precision": 0.851,
+      "sample_size": 490
+    }
   },
-  "drift_detection": {
-    "baseline_date": "2023-01-01",
-    "alert_threshold_psi": 0.25,
-    "last_alert": null
-  }
+  "drift_monitoring": {
+    "method": "Kolmogorov-Smirnov Test",
+    "drift_detected": false,
+    "features_monitored": 6,
+    "features_drifted": 0,
+    "threshold": "p < 0.05",
+    "retraining_trigger": "Weekly or if >2 features drift"
+  },
+  "drift_details": {
+    "whitepaper_downloads": {
+      "ks_statistic": 0.01607142857142857,
+      "p_value": 0.7723725282974443,
+      "drift_detected": false
+    },
+    "pricing_page_visits": {
+      "ks_statistic": 0.005773809523809524,
+      "p_value": 0.9999999944522309,
+      "drift_detected": false
+    },
+    "email_opens": {
+      "ks_statistic": 0.010654761904761905,
+      "p_value": 0.9901451250165437,
+      "drift_detected": false
+    },
+    "email_clicks": {
+      "ks_statistic": 0.005773809523809524,
+      "p_value": 0.9999999944522309,
+      "drift_detected": false
+    },
+    "days_since_last_activity": {
+      "ks_statistic": 0.011904761904761904,
+      "p_value": 0.9689955443894469,
+      "drift_detected": false
+    },
+    "budget_authority_score": {
+      "ks_statistic": 0.02875,
+      "p_value": 0.1221575820272611,
+      "drift_detected": false
+    }
+  },
+  "feature_importance": [
+    {
+      "feature": "pricing_page_visits",
+      "importance": 0.5104058129829483
+    },
+    {
+      "feature": "email_clicks",
+      "importance": 0.1548899135682791
+    },
+    {
+      "feature": "whitepaper_downloads",
+      "importance": 0.1486401872797536
+    },
+    {
+      "feature": "budget_authority_score",
+      "importance": 0.07708997559129947
+    },
+    {
+      "feature": "days_since_last_activity",
+      "importance": 0.048706093002769804
+    }
+  ]
 }
