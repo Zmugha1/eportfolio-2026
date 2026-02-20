@@ -1,31 +1,51 @@
 {
-  "project": "Customer Intelligence (Segmentation with Data Contracts)",
+  "project": "Customer Intelligence (Segmentation)",
   "risk_tier": "High",
-  "approval": "CISO + DPO",
-  "model_performance": {
-    "silhouette_score": 0.68,
-    "n_segments": 5,
-    "stability_runs": 10,
-    "min_segment_pct": 5,
-    "max_segment_pct": 40
+  "approval": "CISO + Legal + DPO (Data Protection Officer)",
+  "data_contract": "v2.1.0",
+  "privacy": {
+    "total_customers": 10000,
+    "behavioral_segments": 8771,
+    "generic_only": 1229,
+    "consent_rate": "87.7%"
   },
-  "data_governance": {
-    "opted_out_pct": 0.12,
-    "consent_filtered": true,
-    "schema_validated": true,
-    "gdpr_requests_fulfilled": 0
+  "clustering": {
+    "optimal_k": 2,
+    "silhouette_score": 0.19912037061239365,
+    "algorithm": "K-Means with Standardization",
+    "features_used": [
+      "recency_days",
+      "frequency",
+      "monetary_avg",
+      "email_opens",
+      "site_visits"
+    ]
+  },
+  "bias_audit": {
+    "chi2": 1.9140094613579357,
+    "p_value": 0.5904447310158716,
+    "bias_detected": false
   },
   "segments": {
-    "VIP Champions": {"pct": 8, "revenue_share": 45},
-    "Weekend Warriors": {"pct": 22, "revenue_share": 18},
-    "Bargain Hunters": {"pct": 35, "revenue_share": 22},
-    "Newcomers": {"pct": 25, "revenue_share": 10},
-    "At-Risk Drifters": {"pct": 10, "revenue_share": 5}
+    "At_Risk": {
+      "size": 1886,
+      "avg_value": 83.63,
+      "avg_frequency": 4.89,
+      "avg_recency": 74.28,
+      "characteristics": "Standard"
+    },
+    "Loyal_Regulars": {
+      "size": 6885,
+      "avg_value": 94.72,
+      "avg_frequency": 5.07,
+      "avg_recency": 16.35,
+      "characteristics": "Standard"
+    }
   },
   "business_impact": {
-    "email_revenue_lift_pct": 340,
-    "clv_lift_pct": 28,
-    "unsubscribe_reduction_pct": 60,
-    "annual_revenue_lift": 3600000
+    "monthly_revenue_lift": 680000.0,
+    "annual_revenue_lift": 8160000.0,
+    "click_rate_improvement": "16.4x",
+    "unsubscribe_reduction": "60%"
   }
 }
