@@ -155,34 +155,48 @@ Equalized Odds: Fairness metric ensuring the model performs equally well across 
 
 st.markdown("---")
 
-# Metrics
+# Metrics - defensive: handle missing variant/conversion columns (wrong CSV format)
+has_variant = "variant" in df.columns and "conversion" in df.columns
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.metric("Total Users", f"{len(df):,}")
 with col2:
-    conv_a = df[df["variant"] == "A"]["conversion"].mean() * 100
-    st.metric("Variant A Conv %", f"{conv_a:.2f}%")
+    if has_variant:
+        conv_a = df[df["variant"] == "A"]["conversion"].mean() * 100
+        st.metric("Variant A Conv %", f"{conv_a:.2f}%")
+    else:
+        st.metric("Variant A Conv %", "N/A")
 with col3:
-    conv_b = df[df["variant"] == "B"]["conversion"].mean() * 100
-    st.metric("Variant B Conv %", f"{conv_b:.2f}%")
+    if has_variant:
+        conv_b = df[df["variant"] == "B"]["conversion"].mean() * 100
+        st.metric("Variant B Conv %", f"{conv_b:.2f}%")
+    else:
+        st.metric("Variant B Conv %", "N/A")
 with col4:
-    rev_b = df[df["variant"] == "B"]["revenue"].sum()
-    st.metric("Variant B Revenue", f"${rev_b:,.0f}")
+    if has_variant and "revenue" in df.columns:
+        rev_b = df[df["variant"] == "B"]["revenue"].sum()
+        st.metric("Variant B Revenue", f"${rev_b:,.0f}")
+    else:
+        st.metric("Variant B Revenue", "N/A")
 
-# Chi-Square Test
-st.subheader("Statistical Validation (Chi-Square)")
-contingency = pd.crosstab(df["variant"], df["conversion"])
-chi2, p_value, dof, expected = stats.chi2_contingency(contingency)
-st.markdown(f"**Chi-Square** = {chi2:.2f} | **p-value** = {p_value:.4f} | **df** = {dof}")
-if p_value < 0.05:
-    st.success("Statistically significant at α=0.05. Variant B shows significant lift.")
+# Chi-Square Test (only if variant/conversion exist)
+if has_variant:
+    st.subheader("Statistical Validation (Chi-Square)")
+    contingency = pd.crosstab(df["variant"], df["conversion"])
+    chi2, p_value, dof, expected = stats.chi2_contingency(contingency)
+    st.markdown(f"**Chi-Square** = {chi2:.2f} | **p-value** = {p_value:.4f} | **df** = {dof}")
+    if p_value < 0.05:
+        st.success("Statistically significant at α=0.05. Variant B shows significant lift.")
+    else:
+        st.warning("Not statistically significant at α=0.05.")
+
+    # Segment fairness (4/5ths rule)
+    if "segment" in df.columns:
+        st.subheader("Fairness Audit (4/5ths Rule)")
+        segment_conv = df.groupby(["segment", "variant"])["conversion"].mean().unstack(fill_value=0)
+        st.dataframe(segment_conv.style.format("{:.2%}"))
 else:
-    st.warning("Not statistically significant at α=0.05.")
-
-# Segment fairness (4/5ths rule)
-st.subheader("Fairness Audit (4/5ths Rule)")
-segment_conv = df.groupby(["segment", "variant"])["conversion"].mean().unstack(fill_value=0)
-st.dataframe(segment_conv.style.format("{:.2%}"))
+    st.warning("Data file missing expected columns (variant, conversion). Please ensure ab_test_data.csv has columns: user_id, variant, conversion, revenue, segment, cohort.")
 
 # Governance Log
 if governance:

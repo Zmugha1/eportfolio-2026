@@ -180,37 +180,15 @@ with st.sidebar:
     st.markdown("[GitHub](https://github.com/zmugha1)")
 
 # MAIN CONTENT
-col1, col2 = st.columns([3, 1])
-
-with col1:
-    st.markdown('<p class="main-header">Zubia Mughal, Ed.D.</p>', unsafe_allow_html=True)
-    st.markdown(
-        '<p class="sub-header">Decision Intelligence Architect</p>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<p class="tagline">Governance-first AI systems that executives trust. Bridging rigorous statistical methodology with $4.6M+ business impact.</p>',
-        unsafe_allow_html=True,
-    )
-
-with col2:
-    st.markdown(
-        '<div style="background-color: #112240; padding: 20px; border-radius: 12px; border: 1px solid #64FFDA; text-align: center;">',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<p style="color: #8892B0; font-size: 0.9em; margin: 0;">Portfolio Status</p>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<p style="color: #64FFDA; font-size: 2em; font-weight: 700; margin: 0;">1/12</p>',
-        unsafe_allow_html=True,
-    )
-    st.markdown(
-        '<p style="color: #E6F1FF; font-size: 0.8em; margin: 0;">Projects Live</p>',
-        unsafe_allow_html=True,
-    )
-    st.markdown("</div>", unsafe_allow_html=True)
+st.markdown('<p class="main-header">Zubia Mughal, Ed.D.</p>', unsafe_allow_html=True)
+st.markdown(
+    '<p class="sub-header">Decision Intelligence Architect</p>',
+    unsafe_allow_html=True,
+)
+st.markdown(
+    '<p class="tagline">Governance-first AI systems that executives trust. Bridging rigorous statistical methodology with $4.6M+ business impact.</p>',
+    unsafe_allow_html=True,
+)
 
 st.markdown("---")
 
@@ -377,61 +355,6 @@ with tab2:
             """,
                 unsafe_allow_html=True,
             )
-
-# FEATURED PROJECT (The Hiring Hook)
-st.markdown("---")
-st.markdown("### Featured Case Study")
-
-with st.container():
-    st.markdown('<div class="project-card">', unsafe_allow_html=True)
-
-    col1, col2 = st.columns([3, 1])
-
-    with col1:
-        st.markdown(
-            '<p class="project-title">Campaign Optimization with MRM</p>',
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            """
-        <p style="color: #8892B0; font-size: 1.1em; line-height: 1.6;">
-        Production-grade A/B testing framework with Model Risk Management governance.
-        Eliminated $480K in wasteful spend while generating $387K risk-adjusted revenue
-        through statistical validation and fairness auditing.
-        </p>
-        """,
-            unsafe_allow_html=True,
-        )
-
-        st.markdown(
-            """
-        <span class="risk-badge risk-medium">Medium Risk Tier</span>
-        <span style="margin-left: 10px; color: #64FFDA; font-size: 0.9em;">
-        • Chi-Square • SQL Window Functions • 4/5ths Fairness Rule • 95% Power
-        </span>
-        """,
-            unsafe_allow_html=True,
-        )
-
-    with col2:
-        st.markdown(
-            '<p style="color: #8892B0; font-size: 0.9em; margin: 0;">Risk-Adjusted Revenue</p>',
-            unsafe_allow_html=True,
-        )
-        st.markdown('<p class="project-impact">$387K</p>', unsafe_allow_html=True)
-        st.markdown(
-            '<p style="color: #64FFDA; font-size: 1.2em; font-weight: 600; margin: 0;">+17.9% Lift</p>',
-            unsafe_allow_html=True,
-        )
-        st.markdown(
-            '<p style="color: #8892B0; font-size: 0.8em; margin-top: 5px;">P &lt; 0.001</p>',
-            unsafe_allow_html=True,
-        )
-
-        if st.button("View Full Case Study", type="primary", use_container_width=True):
-            st.switch_page("pages/01_AB_Testing.py")
-
-    st.markdown("</div>", unsafe_allow_html=True)
 
 # ABOUT SECTION
 st.markdown("---")

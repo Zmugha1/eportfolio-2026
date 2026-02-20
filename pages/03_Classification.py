@@ -63,12 +63,15 @@ st.title("Project 3: Smart Targeting with Drift Detection")
 st.markdown("*Classification model for sales efficiency with MLOps governance*")
 st.markdown("---")
 
-# Metrics
+# Metrics - support both performance (Colab) and model_performance (placeholder) structures
+perf = gov.get("performance") or gov.get("model_performance") or {}
+auc_val = perf.get("auc_roc") or perf.get("auc") or perf.get("concordance_index", 0)
+bi = gov.get("business_impact") or {}
 c1, c2, c3, c4 = st.columns(4)
-c1.metric("Risk Tier", gov["risk_tier"])
-c2.metric("Model AUC", f"{gov['performance']['auc_roc']:.2f}")
-c3.metric("Annual Savings", f"${gov['business_impact']['cost_savings_annual']/1000000:.1f}M")
-c4.metric("Efficiency Lift", gov["business_impact"]["efficiency_gain"])
+c1.metric("Risk Tier", gov.get("risk_tier", "N/A"))
+c2.metric("Model AUC", f"{auc_val:.2f}")
+c3.metric("Annual Savings", f"${bi.get('cost_savings_annual', 0)/1000000:.1f}M")
+c4.metric("Efficiency Lift", bi.get("efficiency_gain", "N/A"))
 
 st.markdown("---")
 
@@ -108,31 +111,31 @@ with tab3:
 Used Random Forest algorithm, 100 "expert trees" voting on the answer. Why? Because buying signals interact: "Downloaded whitepaper" alone = 5% conversion, but "Downloaded whitepaper + Pricing page + VP title" = 65% conversion.""")
 
         st.write("**Top Buying Signals:**")
-        for feat in gov["feature_importance"][:3]:
+        for feat in (gov.get("feature_importance") or [])[:3]:
             st.write(f"- {feat['feature']}: {feat['importance']:.1%} importance")
 
     with col2:
         st.markdown("**Governance Controls**")
-        perf = gov["performance"]
-        st.write(f"""- Risk Tier: {gov['risk_tier']}
-- Approval: {gov['approval']}
-- Optimal Threshold: {perf['optimal_threshold']:.0%} probability
-- Precision: {perf['precision_at_threshold']:.0%} (when we say they'll buy, we're right)
-- Recall: {perf['recall_at_threshold']:.0%} (we catch most actual buyers)
+        perf = gov.get("performance") or gov.get("model_performance") or {}
+        st.write(f"""- Risk Tier: {gov.get('risk_tier', 'N/A')}
+- Approval: {gov.get('approval', 'N/A')}
+- Optimal Threshold: {perf.get('optimal_threshold', 0.5):.0%} probability
+- Precision: {perf.get('precision_at_threshold', 0):.0%} (when we say they'll buy, we're right)
+- Recall: {perf.get('recall_at_threshold', 0):.0%} (we catch most actual buyers)
 - Drift Monitoring: Weekly KS tests for data distribution changes""")
 
     st.markdown("---")
     st.markdown("**Fairness and Bias Audit**")
     st.write("Model accuracy by protected segment (ensuring no discrimination):")
-    for group, metrics in gov["fairness_audit"].items():
+    for group, metrics in (gov.get("fairness_audit") or {}).items():
         st.write(f"- {group}: {metrics['precision']:.1%} accuracy (n={metrics['sample_size']})")
 
-    dm = gov["drift_monitoring"]
+    dm = gov.get("drift_monitoring") or {}
     st.markdown("**Drift Detection Results**")
-    st.write(f"Method: {dm['method']}")
-    st.write(f"Status: {'Drift Detected' if dm['drift_detected'] else 'No Significant Drift'}")
-    st.write(f"Features monitored: {dm['features_monitored']}")
-    st.write(f"Features drifted: {dm['features_drifted']}")
+    st.write(f"Method: {dm.get('method', 'N/A')}")
+    st.write(f"Status: {'Drift Detected' if dm.get('drift_detected') else 'No Significant Drift'}")
+    st.write(f"Features monitored: {dm.get('features_monitored', 0)}")
+    st.write(f"Features drifted: {dm.get('features_drifted', 0)}")
 
     _key_terms_box("""Random Forest: 100+ decision trees voting on the answer. More accurate than one tree, less likely to overfit.<br><br>
 Kolmogorov-Smirnov (KS) Test: A statistical test that checks if two samples (training data vs new data) come from the same distribution. If p-value < 0.05, the data has "drifted" and the model may be outdated.<br><br>
@@ -142,10 +145,9 @@ with tab4:
     st.subheader("The 3x Sales Efficiency Breakthrough")
 
     m1, m2, m3 = st.columns(3)
-    bi = gov["business_impact"]
-    m1.metric("Weekly Calls", f"{bi['calls_reduced_weekly']:,} fewer")
-    m2.metric("Conversion Lift", bi["conversion_lift"])
-    m3.metric("Annual Savings", f"${bi['cost_savings_annual']/1000000:.1f}M")
+    m1.metric("Weekly Calls", f"{bi.get('calls_reduced_weekly', 0):,} fewer")
+    m2.metric("Conversion Lift", bi.get("conversion_lift", "N/A"))
+    m3.metric("Annual Savings", f"${bi.get('cost_savings_annual', 0)/1000000:.1f}M")
 
     st.write("""The Transformation:
 - Before: 1,000 calls/week, 50 deals (5% conversion)
@@ -155,7 +157,7 @@ Governance Win: When COVID-19 shifted buying patterns, drift detection triggered
 
 Soft Benefits: Sales rep satisfaction up 40% (they're closing deals, not being hung up on). Brand reputation improved (stopped annoying unqualified prospects).""")
 
-    st.success(f"ROI: ${bi['cost_savings_annual']/1000000:.1f}M savings vs $80K development cost = 20x return in Year 1.")
+    st.success(f"ROI: ${bi.get('cost_savings_annual', 0)/1000000:.1f}M savings vs $80K development cost = 20x return in Year 1.")
 
 with tab5:
     st.subheader("From Lead Scoring to Opportunity Intelligence")
