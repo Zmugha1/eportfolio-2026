@@ -1,6 +1,6 @@
 """
-Elevate Multi-Agent Assessment System
-Enterprise Bid Intelligence & IT Assessment Automation
+IT Assessment System
+Enterprise Bid Intelligence & Multi-Agent Assessment Automation
 CRAIG framework: Context, Role, Action, Impact, Growth
 """
 
@@ -18,7 +18,7 @@ except ImportError:
     HAS_GRAPHVIZ = False
 
 st.set_page_config(
-    page_title="Elevate Assessment System | Dr. Data",
+    page_title="IT Assessment System | Dr. Data",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -43,7 +43,7 @@ st.markdown("""
 # ==================== HEADER ====================
 st.markdown("""
 <div class="enterprise-header">
-    <h1 style="margin:0;">Elevate Multi-Agent Assessment System</h1>
+    <h1 style="margin:0;">IT Assessment System</h1>
     <h3 style="margin:0; font-weight: normal;">Enterprise Bid Intelligence & IT Assessment Automation</h3>
     <p style="margin-top: 1rem; opacity: 0.9;">
         A governance-first, 9-agent orchestration platform for scalable enterprise decision intelligence.<br>
@@ -98,10 +98,10 @@ with context_tab:
         st.error("""
         **The Breaking Point:** A $500K manufacturing client RFP required response in 72 hours.
         Traditional process would take 3 weeks. Competitor won because they responded in 5 days.
-        We needed **Elevate** to compress 3 weeks into 3 days without sacrificing quality.
+        We needed the **IT Assessment System** to compress 3 weeks into 3 days without sacrificing quality.
         """)
     with col2:
-        st.subheader("Pre-Elevate Metrics")
+        st.subheader("Pre-System Metrics")
         st.metric("Avg. Bid Turnaround", "21 days", "")
         st.metric("Win Rate", "58%", "")
         st.metric("Architect Hours/Bid", "18 hours", "")
@@ -164,7 +164,7 @@ with role_tab:
 # ==================== ACTION TAB ====================
 with action_tab:
     st.header("Action: The 9-Agent Orchestration Engine")
-    st.write("**Core Innovation:** Elevate operates as a **council of specialized agents**, each with specific governance constraints, passing structured data through a deterministic pipeline.")
+    st.write("**Core Innovation:** The system operates as a **council of specialized agents**, each with specific governance constraints, passing structured data through a deterministic pipeline.")
     agent_options = [
         "1. Ingestion Agent", "2. Labeling Agent", "3. Governance Agent", "4. Ontology Agent",
         "5. Retrieval Agent", "6. Assessment Agent", "7. Synthesis Agent", "8. Confidence Agent", "9. Feedback Agent"
@@ -307,7 +307,7 @@ with impact_tab:
         scenarios = ['Pricing', 'Technical', 'Timeline', 'Security']
         fig = go.Figure()
         fig.add_trace(go.Bar(name='Before', x=scenarios, y=[45, 52, 38, 61], marker_color='#e74c3c'))
-        fig.add_trace(go.Bar(name='With Elevate', x=scenarios, y=[92, 88, 85, 94], marker_color='#2ecc71'))
+        fig.add_trace(go.Bar(name='With IT Assessment', x=scenarios, y=[92, 88, 85, 94], marker_color='#2ecc71'))
         fig.update_layout(title='Preparedness by Scenario (%)', barmode='group', template='plotly_dark', paper_bgcolor='rgba(0,0,0,0)', font=dict(color='#CCD6F6'))
         st.plotly_chart(fig, use_container_width=True)
     st.subheader("Enterprise Value: Audit Trail")
@@ -350,7 +350,7 @@ with growth_tab:
 # Sidebar
 with st.sidebar:
     st.markdown("---")
-    st.subheader("Elevate System")
+    st.subheader("IT Assessment")
     st.caption("Multi-Agent Assessment Platform")
     st.metric("Agents", "9", "Modular")
     st.metric("Layers", "7", "Governance-first")
@@ -358,4 +358,4 @@ with st.sidebar:
     st.metric("Confidence Tiers", "3", "Risk-based")
     st.info("**Recruiter:** 'I architect enterprise AI with 9-agent orchestration, full audit trails, and domain scalability.'")
     st.markdown("**Architecture Series:**")
-    st.write("1. BI Convo | 2. HR Agent | 3. L&D System | 4. **Elevate IT**")
+    st.write("1. BI Convo | 2. IT Assessment | 3. HR Agent | 4. L&D System")
