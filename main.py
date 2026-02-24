@@ -5,7 +5,6 @@ from components.sidebar_nav import render_sidebar_nav
 # Page config
 st.set_page_config(
     page_title="Zubia Mughal | Decision Intelligence Architect",
-    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -149,7 +148,8 @@ st.markdown(
         background-color: #64FFDA;
         color: #0A192F !important;
     }
-    /* Default Streamlit page nav shown (showSidebarNavigation=true) alongside custom nav */
+    /* Hide default Streamlit page nav - use custom nav only for consistent order/labels */
+    [data-testid="stSidebarNav"] { display: none !important; }
     </style>
     """,
     unsafe_allow_html=True,
