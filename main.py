@@ -13,28 +13,41 @@ st.set_page_config(
 st.markdown(
     """
     <style>
-    /* Main text colors */
+    /* Typography - consistent scale */
     .main-header {
         font-family: 'Georgia', serif;
         color: #E6F1FF;
-        font-size: 3.2em;
+        font-size: 4.2em;
         font-weight: 700;
         letter-spacing: -0.02em;
-        margin-bottom: 0.2em;
+        margin-bottom: 0.15em;
+        line-height: 1.1;
     }
     .sub-header {
         color: #64FFDA;
-        font-size: 1.4em;
-        font-weight: 300;
-        letter-spacing: 0.1em;
+        font-size: 1.6em;
+        font-weight: 500;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
-        margin-bottom: 1em;
+        margin-bottom: 1.5em;
     }
     .tagline {
-        color: #8892B0;
-        font-size: 1.1em;
-        font-style: italic;
-        line-height: 1.6;
+        color: #CCD6F6;
+        font-size: 1.2em;
+        font-weight: 400;
+        line-height: 1.7;
+        margin-top: 1.5em;
+    }
+    .section-title {
+        color: #E6F1FF;
+        font-size: 1.5em;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    [data-testid="stAppViewContainer"] [data-testid="stMarkdown"] p {
+        font-size: 1.05em;
+        line-height: 1.7;
+        color: #CCD6F6;
     }
 
     /* Metric Cards - Dark background with teal accent */
@@ -59,9 +72,9 @@ st.markdown(
     }
     .metric-label {
         color: #8892B0;
-        font-size: 0.9em;
+        font-size: 1em;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
         margin-top: 8px;
     }
 
@@ -75,7 +88,7 @@ st.markdown(
     }
     .skills-header {
         color: #64FFDA;
-        font-size: 1.2em;
+        font-size: 1.25em;
         font-weight: 600;
         margin-bottom: 15px;
         border-bottom: 2px solid #233554;
@@ -84,7 +97,7 @@ st.markdown(
     .skill-item {
         color: #CCD6F6;
         padding: 5px 0;
-        font-size: 0.95em;
+        font-size: 1.05em;
     }
 
     /* Project cards */
@@ -164,15 +177,11 @@ st.markdown(
     '<p class="sub-header">Decision Intelligence Architect</p>',
     unsafe_allow_html=True,
 )
-st.markdown(
-    '<p class="tagline">Governance-first AI systems that executives trust. Bridging rigorous statistical methodology with $4.6M+ business impact.</p>',
-    unsafe_allow_html=True,
-)
 
 st.markdown("---")
 
 # METRICS ROW - High Contrast Dark Cards
-st.markdown("### Enterprise Impact Metrics")
+st.markdown('<p class="section-title">Enterprise Impact Metrics</p>', unsafe_allow_html=True)
 m1, m2, m3, m4 = st.columns(4)
 
 with m1:
@@ -219,9 +228,15 @@ with m4:
         unsafe_allow_html=True,
     )
 
+# ABOUT ME (moved under metrics)
+st.markdown(
+    '<p class="tagline">Governance-first AI systems that executives trust. Bridging rigorous statistical methodology with $4.6M+ business impact.</p>',
+    unsafe_allow_html=True,
+)
+
 # SKILLS MATRIX
 st.markdown("---")
-st.markdown("### Governance-First Capabilities")
+st.markdown('<p class="section-title">Governance-First Capabilities</p>', unsafe_allow_html=True)
 
 tab1, tab2 = st.tabs(["Technical Architecture", "Strategic Leadership"])
 
@@ -337,7 +352,7 @@ with tab2:
 
 # ABOUT SECTION
 st.markdown("---")
-st.markdown("### About")
+st.markdown('<p class="section-title">About</p>', unsafe_allow_html=True)
 
 col1, col2 = st.columns([2, 1])
 with col1:
