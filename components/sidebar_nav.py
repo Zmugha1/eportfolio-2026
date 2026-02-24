@@ -10,6 +10,7 @@ def render_sidebar_nav():
 
         st.page_link("app.py", label="Main")
         st.page_link("pages/0_BI_Convo.py", label="BI Convo")
+        st.page_link("pages/1_HR_Intelligence_Agent.py", label="HR Intelligence Agent")
         st.page_link("pages/01_AB_Testing.py", label="AB Testing")
         st.page_link("pages/02_Survival.py", label="Survival")
         st.page_link("pages/03_Classification.py", label="Classification")
