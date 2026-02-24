@@ -149,8 +149,7 @@ st.markdown(
         background-color: #64FFDA;
         color: #0A192F !important;
     }
-    /* Hide default Streamlit page nav - we use custom nav */
-    [data-testid="stSidebarNav"] { display: none !important; }
+    /* Default Streamlit page nav shown (showSidebarNavigation=true) alongside custom nav */
     </style>
     """,
     unsafe_allow_html=True,

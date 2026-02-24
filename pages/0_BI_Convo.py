@@ -170,7 +170,7 @@ context_tab, role_tab, action_tab, impact_tab, growth_tab = st.tabs([
 
 # ==================== CONTEXT TAB ====================
 with context_tab:
-    st.header("The Tower of Babel: Mike's Manufacturing Chaos")
+    st.header("Mike's Manufacturing Chaos")
     col1, col2 = st.columns([3, 2])
     with col1:
         st.subheader("The Scenario")
