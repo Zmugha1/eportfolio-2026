@@ -40,13 +40,13 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.title("🎓 L&D Intelligence System (ILI Assistant)")
+st.title("L&D Intelligence System (ILI Assistant)")
 st.subheader("Multi-Agent Workflow Automation: From Weeks to Hours")
-st.caption("Impact Leadership Institute | Impact Networking | Multi-Agent Architecture with Human-in-the-Loop")
+st.caption("Impact Leadership Institute | Managed Services Inc | Multi-Agent Architecture with Human-in-the-Loop")
 
 st.markdown("""
 <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
-    <strong>🎯 Domain Expertise Advantage:</strong> I built this for my former department.
+    <strong>Domain Expertise Advantage:</strong> I built this for my former department.
     Having been a technical trainer and OD consultant, I knew exactly where the bottlenecks were
     in the training development lifecycle. This wasn't just coding—it was systems design informed by
     6+ years in workforce development.
@@ -54,8 +54,8 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 context_tab, role_tab, action_tab, impact_tab, growth_tab = st.tabs([
-    "📖 CONTEXT: Slow Lifecycle", "🎯 ROLE: The Systems Architect", "⚡ ACTION: Multi-Agent Build",
-    "📊 IMPACT: Weeks → Hours", "🚀 GROWTH: IT Assessment Clone"
+    "CONTEXT: Slow Lifecycle", "ROLE: The Systems Architect", "ACTION: Multi-Agent Build",
+    "IMPACT: Weeks → Hours", "GROWTH: IT Assessment Clone"
 ])
 
 with context_tab:
@@ -127,7 +127,7 @@ def extract_competency_gap(conversation_transcript):
         with col2:
             st.markdown("""
             <div class='agent-card'>
-                <h3>🎤 Intake Agent</h3>
+                <h3>Intake Agent</h3>
                 <p><strong>Input:</strong> Stakeholder chat</p>
                 <p><strong>Process:</strong> NLP extraction</p>
                 <p><strong>Output:</strong> Structured analysis</p>
@@ -157,7 +157,7 @@ def extract_competency_gap(conversation_transcript):
     elif agent == "Agent 3: SME Review Gateway":
         st.subheader("Agent 3: The SME Gate (Human-in-the-Loop)")
         st.write("**Rules:** Auto-Approve: soft skills. SME Required: technical, compliance, safety. Legal Required: harassment, medical, financial.")
-        st.markdown("<div class='sme-gate'><h4>🚦 SME Gate Logic</h4><p><strong>IF</strong> content_type==compliance OR risk>medium → Route to SME → AI pre-flags → SME approves/modifies → Feedback trains AI</p></div>", unsafe_allow_html=True)
+        st.markdown("<div class='sme-gate'><h4>SME Gate Logic</h4><p><strong>IF</strong> content_type==compliance OR risk>medium → Route to SME → AI pre-flags → SME approves/modifies → Feedback trains AI</p></div>", unsafe_allow_html=True)
         for step, time, detail in [("AI generates draft","2 hrs","OSHA templates"),("AI flags for SME","Auto","Fall Protection→safety engineer"),("SME Review","24 hrs","Teams integration"),("AI incorporates feedback","30 min","Auto revisions"),("Final Approval","1 hr","Legal sign-off")]:
             c1, c2, c3 = st.columns([2, 1, 3])
             c1.write(f"**{step}**")
@@ -241,17 +241,17 @@ with growth_tab:
     st.subheader("Roadmap: From 2 Agents to Ecosystem")
     roadmap_cols = st.columns(4)
     with roadmap_cols[0]:
-        st.markdown("**Month 1-2**"); st.write("✅ HR Agent (Single)"); st.write("Foundation built")
+        st.markdown("**Month 1-2**"); st.write("HR Agent (Single)"); st.write("Foundation built")
     with roadmap_cols[1]:
-        st.markdown("**Month 3-4**"); st.write("✅ L&D System (Multi)"); st.write("SME gates added")
+        st.markdown("**Month 3-4**"); st.write("L&D System (Multi)"); st.write("SME gates added")
     with roadmap_cols[2]:
-        st.markdown("**Month 5-6**"); st.write("✅ IT Assessment"); st.write("Clone & customize")
+        st.markdown("**Month 5-6**"); st.write("IT Assessment"); st.write("Clone & customize")
     with roadmap_cols[3]:
-        st.markdown("**Month 7+**"); st.write("🔄 Sales Enablement"); st.write("External clients")
+        st.markdown("**Month 7+**"); st.write("Sales Enablement"); st.write("External clients")
 
 with st.sidebar:
     st.markdown("---")
-    st.subheader("🎓 L&D System")
+    st.subheader("L&D System")
     st.metric("Time Reduction", "6 wks → 48 hrs", "-88%")
     st.metric("Architecture Reuse", "70%", "Platform")
     st.metric("SME Time Saved", "80%", "")
