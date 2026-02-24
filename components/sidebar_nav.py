@@ -9,6 +9,7 @@ def render_sidebar_nav():
         st.caption("Select a case study to view governance framework & ROI")
 
         st.page_link("app.py", label="Main")
+        st.page_link("pages/00_BI_Convo.py", label="BI Convo")
         st.page_link("pages/01_AB_Testing.py", label="AB Testing")
         st.page_link("pages/02_Survival.py", label="Survival")
         st.page_link("pages/03_Classification.py", label="Classification")
